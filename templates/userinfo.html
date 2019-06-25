@@ -1,0 +1,123 @@
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login-Successful</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/874f2f835f.js"></script>
+    <style>
+        img {
+            width: 25px;
+
+        }
+
+        .main {
+            background-image: linear-gradient(#2A8BE6, #3C4C5B);
+            display: inline-block;
+            width: 343px;
+            vertical-align: top;
+            height: 600px;
+            margin: 10px;
+        }
+
+
+        .foryou {
+
+            display: inline-block;
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        .sender {
+
+            font-size: 25px;
+        }
+
+        .container-fluid {
+            display: inline-block;
+            width: 512px;
+            height: 600px;
+            margin: 10px;
+            background-image: linear-gradient(#2A8BE6, #3C4C5B);
+        }
+
+        body {
+            width: 800px;
+            min-height: 150px;
+
+        }
+
+        .first {
+
+            font-size: 30px;
+        }
+
+        .wrapper {
+            height: 200px;
+            width: 900px;
+        }
+
+        .submit {
+            margin-left: 10px;
+            vertical-align: super;
+        }
+
+        textarea {
+            height: 34px;
+            margin-top: 24px;
+            margin-left: 10px;
+            margin-bottom: -7px;
+
+        }
+
+        .content {
+
+            font-style: italic;
+            font-size: 25px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div>
+            <nav class="navbar navbar-dark bg-dark">
+                <h3>
+                    Welcome {{session["username"]}}
+                </h3>
+                <h6><a href="/success">home</a></h6>
+                <h6><a href="/toaddpage">Add Book and Review</a></h6>
+                <h6><a href="/logout">Log-out</a></h6>
+            </nav>
+        </div>
+        <div>
+            <p>User Allias: {{userinfo['first']}}</p>
+            <p> Name: {{userinfo[0]['first']}} {{userinfo['last']}} </p>
+            <p>Email: {{userinfo[0]['email']}} </p>
+            <p>number of review: {{rnum}}
+        </div> 
+        <div>
+            <h4>Posted reviews on the following books:</h4>
+            {% for i in userinfo %}
+            {{i["title"]}}
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>
